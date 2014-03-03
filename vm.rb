@@ -7,7 +7,7 @@ class VM
     @offset = offset
     @instr = @core.mem[@offset]
     @kill = false
-    @instruction_set = {
+    @instr_set = {
       nop: 0x00,
       jmp: 0x01,
       jnz: 0x02,
@@ -17,7 +17,7 @@ class VM
   end
   
   def valid_instr?(instr)
-    
+    @instr_set.has_key? instr
   end
   
   def kill?
